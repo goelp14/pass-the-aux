@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormControl";
 import { Row, Col, Container } from "react-bootstrap";
 import "./Home.css";
 class Home extends Component {
@@ -24,23 +25,26 @@ class Home extends Component {
           <Col>
             <Row className="justify-content-md-center">
               <Button variant="secondary">
-                <NavLink to="/stuff" className="buttonHome">
+                {/* <NavLink to="/dj" className="buttonHome">
                   I'm The DJ!
-                </NavLink>
+                </NavLink> */}
+                I'm The DJ!
               </Button>
             </Row>
             <Row className="justify-content-md-center">
               <p>Or Enter Guest Below:</p>
             </Row>
-            <Row className="justify-content-md-center">
-              <Form>
-                <Form.Control
-                  size="md"
-                  type="text"
-                  placeholder="Enter Song Here"
-                  className="formHome"
+            <Row className="justify-content-md-left">
+              <InputGroup className="mb-3">
+                <FormControl
+                  placeholder="Recipient's username"
+                  aria-label="Recipient's username"
+                  aria-describedby="basic-addon2"
                 />
-              </Form>
+                <InputGroup.Append>
+                  <Button variant="outline-primary">Submit</Button>
+                </InputGroup.Append>
+              </InputGroup>
             </Row>
           </Col>
         </Container>
