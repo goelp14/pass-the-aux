@@ -34,7 +34,10 @@ function onYouTubeIframeAPIReady() {
 }
 function onPlayerStateChange(event) {        
     if(event.data === 0) {          
-        alert('done');
+        player.loadPlaylist({listType:"search",
+        list:"never gonna give you up",
+        index:0,
+        startSeconds:0});
     }
 }
 
