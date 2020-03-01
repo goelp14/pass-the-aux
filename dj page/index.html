@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Pass The Aux</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+</head>
+
+<body style="background-color: rgb(30,28,28);">
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="background-color: rgb(0,0,0);">
+        <div class="container"><a class="navbar-brand" href="#" style="color: rgb(255,255,255);">Pass The Aux</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1" style="background-color: #ffffff;"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navcol-1" style="padding-left: 0px;">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item" role="presentation"></li>
+                    <li class="nav-item" role="presentation"></li>
+                </ul><span class="navbar-text actions"
+                > <a style="padding-right: 0px;padding-bottom: 0px;padding-left: 0px;color: rgba(170,170,170,0.9);">Room #</a><a style="padding-right: 20px;color: rgba(255,255,255,0.9);">123456</a><a class="btn btn-outline-light">Exit Room</a></span></div>
+        </div>
+    </nav>
+
+    <div class="container">
+            <!-- <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"> -->
+            <div class="row songsearch">
+                <div class="col text-center d-flex d-md-flex justify-content-center align-items-center justify-content-sm-center justify-content-lg-center">
+                    <form class="d-flex d-sm-flex d-md-flex justify-content-center align-items-center align-items-sm-center justify-content-md-center align-items-md-center"><input class="form-control form-control-lg" type="text" id="roomcode" style="border: 2px solid purple;height: 45px;width: 100%;margin: 10px;background-color: rgb(69,69,69);color: rgb(225,225,225);filter: saturate(99%);border: 2px solid black;font-size: 26px;"
+                            placeholder="Add Your Song" maxlength="20" inputmode="text"><button class='btn iconbutton'><i class="fas fa-plus-square icon"></i></button>
+                </div>
+            </div>
+                <!-- <button type="button"></i></button> -->
+            
+                <div id="video-placeholder"></div>
+            
+                <div class='row'>
+                <div class="iconbox">
+                        <p>Skip:</p>
+                        <i class="fas fa-forward iconskip" id="skip" onclick="handleClick()"></i>
+                        <script>
+                            function handleClick() {
+                                element = document.getElementById("skip");
+                                element.classList.toggle("voted");
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <div class='row'>
+                <div class="iconbox">
+                    <div class="iconbox-text">
+                        <h2>Song Selection: Song Title</h2>
+                        <p>Skip:</p>
+                        <i class="fas fa-forward iconskip" id="skip2" onclick="handleClick2()"></i>
+                        <script>
+                            function handleClick2() {
+                                element = document.getElementById("skip2");
+                                element.classList.toggle("voted");
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+</body>
+
+</html>
