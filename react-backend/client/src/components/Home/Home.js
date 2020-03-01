@@ -25,10 +25,9 @@ class Home extends Component {
           <Col>
             <Row className="justify-content-md-center">
               <Button variant="secondary">
-                {/* <NavLink to="/dj" className="buttonHome">
+                <NavLink to="/dj" className="buttonHome">
                   I'm The DJ!
-                </NavLink> */}
-                I'm The DJ!
+                </NavLink>
               </Button>
             </Row>
             <Row className="justify-content-md-center">
@@ -37,12 +36,16 @@ class Home extends Component {
             <Row className="justify-content-md-left">
               <InputGroup className="mb-3">
                 <FormControl
-                  placeholder="Recipient's username"
-                  aria-label="Recipient's username"
+                  placeholder="Room Name"
+                  aria-label="Room Name"
                   aria-describedby="basic-addon2"
                 />
                 <InputGroup.Append>
-                  <Button variant="outline-primary">Submit</Button>
+                  <Button variant="outline-primary">
+                    <NavLink to="/guest" className="buttonHome">
+                      Submit
+                    </NavLink>
+                  </Button>
                 </InputGroup.Append>
               </InputGroup>
             </Row>
