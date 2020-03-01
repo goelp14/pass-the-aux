@@ -8,8 +8,8 @@ function getID() {
     var input = document.getElementById("userInput").value;
     var id = input.substr(input.length - 11);
     global_id = id;
-    alert(global_id);
-    loadVideoById(global_id, 0, "large");
+    //player.loadVideoById(global_id, 0, "large");
+    player.cueVideoById(global_id);
 }
 
 function onYouTubeIframeAPIReady() {
@@ -23,9 +23,15 @@ function onYouTubeIframeAPIReady() {
             playlist: playlist_songs
         },
         events: {
-            onReady: initialize
+            onReady: initialize,
+            onStateChange: onPlayerStateChange
         }
     });
+}
+function onPlayerStateChange(event) {        
+    if(event.data === 0) {          
+        alert('done');
+    }
 }
 
 function initialize(){
