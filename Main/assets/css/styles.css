@@ -1,13 +1,39 @@
 .icon {
-  display: inline-block;
-  padding-top: .3125rem;
-  padding-bottom: .3125rem;
-  margin-right: 1rem;
-  font-size: 1.25rem;
-  line-height: inherit;
-  white-space: nowrap;
+	display: inline-block;
+	padding-top: 0.3125rem;
+	padding-bottom: 0.3125rem;
+	margin-right: 1rem;
+	font-size: 1.25rem;
+	line-height: inherit;
+	white-space: nowrap;
 }
 
 .navbar-light .navbar-toggler {
 }
 
+svg {
+	width: 50%;
+	height: 50%;
+	background-color: transparent;
+	margin-top: -60px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+path {
+	stroke-dasharray: 2000 100;
+	animation: draw 15s infinite;
+}
+
+.svg path {
+	fill: white;
+}
+
+@keyframes draw {
+	from {
+		stroke-dashoffset: 0;
+	}
+	to {
+		stroke-dashoffset: 2700;
+	}
+}
