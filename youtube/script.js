@@ -2,12 +2,21 @@ var player,
     time_update_interval = 0;
 
 let playlist_songs = 'tG35R8F2j8k, R3QbZUekxjk'
+var global_id; 
+
+function getID() {
+    var input = document.getElementById("userInput").value;
+    var id = input.substr(input.length - 11);
+    global_id = id;
+    alert(global_id);
+    initialize();
+}
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('video-placeholder', {
         width: 600,
         height: 400,
-        videoId: 'bCHbsAh8B4w',
+        videoId: global_id,
         playerVars: {
             color: 'white',
             playlist: playlist_songs
