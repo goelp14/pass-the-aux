@@ -4,7 +4,16 @@ var player,
 let playlist_songs;
 var global_id = "UNZqm3dxd2w"; 
 
+function addmusic(){
+    var input = document.getElementById("search").value;
+    addSong(room, input, "", "");
+}
+
 function playnextsong() {
+    // remove song from playlist, then go to next song
+
+
+
     // var input = document.getElementById("userInput").value;
     // //var id = input.substr(input.length - 11);
     // global_id = input;
