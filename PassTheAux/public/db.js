@@ -2,11 +2,8 @@ document.addEventListener("DOMContentLoaded", () => loaded(), false);
 
 async function loaded() {
     const app = firebase.app();
-    console.log(app);
     const db = firebase.firestore();
-    console.log(db)
     const song = db.collection('Rooms');
-    console.log(song);
     let djCode = song.doc('0000');
     addRoom('0000', 'DJ01');
     addSong('0000', "test3", "url2", "utub4");
@@ -16,9 +13,6 @@ async function loaded() {
     let songs = await getSongs('0000');
     console.log(songs);
     let song1 = songs[0];
-    console.log(hasCode);
-    console.log(song1);
-    console.log(song1['name']);
 }
 
 async function getSongs(Room_code) {
@@ -156,4 +150,30 @@ function change_page_to_dj() {
 
 function change_page_to_home(){
     window.location.href = "../index.html";
+}
+
+function joinRoom() {
+    room_code = document.getElementById('roomcode').value;
+    sessionStorage.setItem('roomcode', room_code);
+    window.location.href = "PassTheAuxNavbarTemplate/";
+}
+
+function dj_create_room(){
+    room_code = genRoomCode();
+    djCode = genDjCode();
+    sessionStorage.setItem('roomcode', room_code);
+    sessionStorage.setItem('djcode', djCode);
+    window.location.href = "../";
+}
+
+async function dj_rejoin_room() {
+    room_code = document.getElementById('roomcode').value;
+    dj_code = document.getElementById('djcode').value;
+    let a = await hasDjCode(room_code, dj_code);
+    if (!a) {
+        alert("Those codes do not match. Sorry!");
+    } else {
+        sessionStorage.setItem('roomcode', room_code);
+        sessionStorage.setItem('djcode', dj_code);
+    }
 }
