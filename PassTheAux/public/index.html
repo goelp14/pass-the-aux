@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to Firebase Hosting</title>
 
+    
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/tomorrow.min.css">
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/7.9.3/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->
@@ -16,13 +22,126 @@
     <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+
   </head>
   <body>
-    <button onclick="read()">
-      Here is a Button
-    </button>
-
-    <script src='test.js'>
+    <header>
+      <h1>Test Website</h1>
+  </header>
+  
+  <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+  
+  <div id="video-placeholder"></div>
+  
+  <div id="controls">
+  
+      <ul>
+          
+          <li>
+  
+              
+                  <form id="form" onsubmit ="return false;">
+                      <input type="text" id="userInput" />
+                      <input type="submit" onclick="getID();" />
+                  </form>
+                  <br />
+                  <br />
+  
+              <h2>Player Initialization</h2>
+          </li>
+  
+          <li>
+  
+              <h2>Duration</h2>
+  
+              <p><span id="current-time">0:00</span> / <span id="duration">0:00</span></p>
+  
+          </li>
+  
+          <li>
+  
+              <h2>Progress Bar</h2>
+  
+              <input type="range" id="progress-bar" value="0">
+          </li>
+  
+          <li>
+  
+              <h2>Play</h2>
+              <i id="play" class="material-icons">play_arrow</i>
+  
+          </li>
+  
+          <li>
+  
+              <h2>Pause</h2>
+              <i id="pause" class="material-icons">pause</i>
+          </li>
+  
+          <li>
+  
+              <h2>Mute / Unmute</h2>
+              <i id="mute-toggle" class="material-icons">volume_up</i>
+          </li>
+  
+          <li>
+  
+              <h2>Set volume</h2>
+              <input id="volume-input" type="number" max="100" min="0">
+  
+          </li>
+  
+          <li>
+  
+              <h2>Speed</h2>
+              <select id="speed">
+                  <option>0.25</option>
+                  <option>0.5</option>
+                  <option selected="selected">1</option>
+                  <option>1.5</option>
+              <option>2</option>
+              </select>
+          </li>
+  
+          <li>
+  
+              <h2>Quality</h2>
+              <select id="quality">
+                  <option>small</option>
+                  <option>medium</option>
+                  <option selected="selected">large</option>
+                  <option>hd720</option>
+                  <option>hd1080</option>
+              <option>highres</option>
+              </select>
+          </li>
+  
+          <li>
+  
+              <h2>Playlist Next</h2>
+              <i id="next" class="material-icons">fast_forward</i>
+  
+          </li>
+  
+          <li>
+  
+              <h2>Playlist Previous</h2>
+              <i id="prev" class="material-icons">fast_rewind</i>
+          </li>
+  
+  
+      </ul>
+  
+  </div>
+  
+  
+  
+  
+  <script src="script.js"></script>
+  <script src='test.js'>
       
     </script>
   </body>
