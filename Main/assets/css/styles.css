@@ -12,12 +12,18 @@
 }
 
 svg {
-	width: 50%;
+	width: 100%;
 	height: 50%;
 	background-color: transparent;
 	margin-top: -60px;
-	margin-left: auto;
-	margin-right: auto;
+	left: 25%;
+	position: relative;
+}
+
+.svg-container {
+	height: 730px;
+	position: absolute;
+	width: 100%;
 }
 
 path {
