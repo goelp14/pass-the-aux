@@ -139,3 +139,13 @@ function removeVote(room_code, song_name) {
     return result;
     
 }
+
+function genRoomCode() {
+    let x = Math.floor((Math.random() * 10000));
+    return x.toString();
+}
+
+function genDjCode() {
+    let x = Math.floor((Math.random() * 10000));
+    return "DJ" + x.toString(); 
+}
