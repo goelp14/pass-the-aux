@@ -4,16 +4,16 @@ var player,
 let playlist_songs;
 var global_id = "UNZqm3dxd2w"; 
 
-function getID() {
-    var input = document.getElementById("userInput").value;
-    //var id = input.substr(input.length - 11);
-    global_id = input;
-    // player.loadVideoById(global_id, 0, "large");
-    //alert(global_id);
-    player.loadPlaylist({listType:"search",
-        list:global_id,
-        index:0,
-        startSeconds:0});
+function playnextsong() {
+    // var input = document.getElementById("userInput").value;
+    // //var id = input.substr(input.length - 11);
+    // global_id = input;
+    // // player.loadVideoById(global_id, 0, "large");
+    // //alert(global_id);
+    // player.loadPlaylist({listType:"search",
+    //     list:global_id,
+    //     index:0,
+    //     startSeconds:0});
 }
 
 function onYouTubeIframeAPIReady() {
@@ -33,11 +33,12 @@ function onYouTubeIframeAPIReady() {
     });
 }
 function onPlayerStateChange(event) {        
-    if(event.data === 0) {          
-        player.loadPlaylist({listType:"search",
-        list:"never gonna give you up",
-        index:0,
-        startSeconds:0});
+    if(event.data === 0) {         
+        playnextsong(); 
+        // player.loadPlaylist({listType:"search",
+        // list:"never gonna give you up",
+        // index:0,
+        // startSeconds:0});
     }
 }
 

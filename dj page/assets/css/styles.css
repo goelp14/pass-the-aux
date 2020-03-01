@@ -1,6 +1,8 @@
 #video-placeholder{
 	margin: auto;
 	display: block;
+	padding: 20px;
+	
 }
 
 .icon {
@@ -45,11 +47,11 @@
 
 .iconbox {
 	background: #000 none repeat scroll 0 0;
-	padding: 40px 15px;
+	padding: 15px 15px;
 	position: relative;
 	text-align: center;
 	width: 80%;
-  margin: 30px auto;
+  margin: 20px auto;
   color: white;
 }
 
