@@ -9,10 +9,11 @@ function getID() {
     var id = input.substr(input.length - 11);
     global_id = id;
     alert(global_id);
-    initialize();
+    loadVideoById(global_id, 0, "large");
 }
 
 function onYouTubeIframeAPIReady() {
+
     player = new YT.Player('video-placeholder', {
         width: 600,
         height: 400,
