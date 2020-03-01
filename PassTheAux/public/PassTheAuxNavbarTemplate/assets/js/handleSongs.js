@@ -1,18 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => loaded(), false);
 
 async function loaded() {
-    const app = firebase.app();
-    const db = firebase.firestore();
-    const song = db.collection('Rooms');
-    let djCode = song.doc('0000');
-    addRoom('0000', 'DJ01');
-    addSong('0000', "test3", "url2", "utub4");
-    getSongs("0000");
-    addVote('0000', 'test3');
-    let hasCode = await hasDjCode('0000', 'DJ01');
-    let songs = await getSongs('0000');
-    console.log(songs);
-    let song1 = songs[0];
+    document.getElementById("guest_room_num").innerHTML = sessionStorage.getItem("roomcode");
+    removeQueue();
+    fillQueue();
+    
 }
 
 async function getSongs(Room_code) {
@@ -29,15 +21,10 @@ async function getSongs(Room_code) {
     .get()
     .then(function(querySnapshot) {
         let list = [];
-        querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            data = doc.data();
-            song['name'] = doc.id;
-            song['url'] = doc.get('url');
-            song['type'] = doc.get('type');
-            song['votes'] = doc.get('votes');
-            list.push(song);
+        querySnapshot.forEach(async function(doc) {
+            list.push(await getSong(Room_code, doc));
         });
+        
         return list;
     })
     .catch(function(error) {
@@ -65,6 +52,23 @@ function addRoom(room_code, dj_code) {
     rooms.doc(room_code).set({
         DJCODE: dj_code
     });
+}
+
+
+async function getSong(room_code, doc) {
+    let song = {
+        name: "null",
+        url: "null",
+        type:"null",
+        votes: 0
+    };
+    const app = firebase.app();
+    const db = firebase.firestore();
+    song['name'] = doc.id;
+    song['url'] = doc.get('url');
+    song['type'] = doc.get('type');
+    song['votes'] = doc.get('votes');
+    return song;
 }
 
 function deleteSong(room_code, song_name) {
@@ -117,66 +121,48 @@ function removeVote(room_code, song_name) {
     }, { merge: true });
 }
 
- async function hasDjCode(room_code, dj_code) {
-    const app = firebase.app();
-    const db = firebase.firestore();
-    const rooms = db.collection('Rooms');
-    let room = rooms.doc(room_code);
-    let result = room.get().then(function(doc) {
-        let actual_code = doc.get('DJCODE');
-        if (actual_code == dj_code) {
-            return true;
-        } else {
-            return false;
-        }
-    });
-    return result;
-    
-}
-
-function genRoomCode() {
-    let x = Math.floor((Math.random() * 10000));
-    return x.toString();
-}
-
-function genDjCode() {
-    let x = Math.floor((Math.random() * 10000));
-    return "DJ" + x.toString(); 
-}
-
-function change_page_to_dj() {
-    window.location.href = "dj_page/dj_page.html";
-} 
-
-function change_page_to_home(){
-    window.location.href = "../index.html";
-}
-
-function joinRoom() {
-    room_code = document.getElementById('roomcode').value;
-    sessionStorage.setItem('roomcode', room_code);
-    window.location.href = "PassTheAuxNavbarTemplate/";
-}
-
-function dj_create_room(){
-    room_code = genRoomCode();
-    djCode = genDjCode();
-    sessionStorage.setItem('roomcode', room_code);
-    sessionStorage.setItem('djcode', djCode);
-    addRoom(room_code, djCode);
-    window.location.href = "../djroom/djroom.html";
-}
-
-async function dj_rejoin_room() {
-    room_code = document.getElementById('roomcode').value;
-    dj_code = document.getElementById('djcode').value;
-    let a = await hasDjCode(room_code, dj_code);
-    if (!a) {
-        alert("Those codes do not match. Sorry!");
+function handleClick2(name) {
+    let room_code = sessionStorage.getItem("roomcode");
+    element = document.getElementById(name);
+    if (element.classList.contains('voted')) {
+        removeVote(room_code, name);
     } else {
-        sessionStorage.setItem('roomcode', room_code);
-        sessionStorage.setItem('djcode', dj_code);
-        window.location.href = "../djroom/djroom.html";
-
+        addVote(room_code, name);
     }
+    element.classList.toggle("voted");
+}
+
+async function fillQueue() {
+    let room_code = sessionStorage.getItem("roomcode");
+    let songs = await getSongs(room_code);
+    songs.reverse();
+    console.log(songs.length);
+    console.log(songs);
+    songs.map((song) => {
+        let songRow = document.createElement("div");
+    songRow.classList.add("row");
+    let songBody = document.getElementById("songinsert");
+    songRow.innerHTML = `<div class="iconbox">
+        <div class="iconbox-text">
+            <h2>Song Selection: `+ song['name'] + `</h2>
+            <p>Vote to Skip:</p>
+            <i class="fas fa-forward iconskip" id="` + song['name'] + `" onclick="handleClick2('` + song['name'] + `')"></i>
+            <script>
+                
+            </script>
+        </div>
+    </div>`;
+    songBody.append(songRow);})
+}
+
+function removeQueue() {
+    let songBody = document.getElementById("songinsert");
+    songBody.innerHTML.value = ``;
+}
+
+function addmusic(){
+    room = sessionStorage.getItem("roomcode");
+    var input = document.getElementById("search").value;
+    addSong(room, input, "", "");
+    document.getElementById("search").value = "";
 }
