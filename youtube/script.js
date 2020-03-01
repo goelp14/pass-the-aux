@@ -6,10 +6,14 @@ var global_id;
 
 function getID() {
     var input = document.getElementById("userInput").value;
-    var id = input.substr(input.length - 11);
-    global_id = id;
-    //player.loadVideoById(global_id, 0, "large");
-    player.cueVideoById(global_id);
+    //var id = input.substr(input.length - 11);
+    global_id = input;
+    // player.loadVideoById(global_id, 0, "large");
+    //alert(global_id);
+    player.cuePlaylist({listType:"search",
+        list:global_id,
+        index:0,
+        startSeconds:0});
 }
 
 function onYouTubeIframeAPIReady() {
