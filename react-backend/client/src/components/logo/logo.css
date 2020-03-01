@@ -1,0 +1,19 @@
+svg {
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+  }
+  
+  path {
+    stroke-dasharray: 2000 100;
+    animation: draw 15s infinite;
+  }
+  
+  @keyframes draw {
+    from {
+      stroke-dashoffset: 0;
+    }
+    to {
+      stroke-dashoffset: 2700;
+    }
+  }
