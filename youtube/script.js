@@ -10,7 +10,7 @@ function getID() {
     global_id = input;
     // player.loadVideoById(global_id, 0, "large");
     //alert(global_id);
-    player.cuePlaylist({listType:"search",
+    player.loadPlaylist({listType:"search",
         list:global_id,
         index:0,
         startSeconds:0});
