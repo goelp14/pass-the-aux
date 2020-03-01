@@ -181,7 +181,7 @@ async function fillQueue() {
 
 function removeQueue() {
     let songBody = document.getElementById("songinsert");
-    songBody.innerHTML.value = ``;
+    songBody.innerHTML = "";
 }
 
 function handleClick2(name) {
@@ -243,9 +243,10 @@ async function getSongs(Room_code) {
 // youtube stuff
 function addmusic(){
     var input = document.getElementById("search").value;
-    //alert(room);
     addSong(room, input, "", "");
     document.getElementById("search").value = "";
+    removeQueue();
+    fillQueue();
 }
 
 async function getmusic(){

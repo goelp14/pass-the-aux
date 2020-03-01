@@ -4,6 +4,9 @@ async function loaded() {
     document.getElementById("guest_room_num").innerHTML = sessionStorage.getItem("roomcode");
     removeQueue();
     fillQueue();
+    songs = await getSongs(sessionStorage.getItem("roomcode"));
+
+    document.getElementById('now_playing').innerText = "Now Playing: " + songs[songs.length -1]['name'];
     
 }
 
@@ -24,7 +27,7 @@ async function getSongs(Room_code) {
         querySnapshot.forEach(async function(doc) {
             list.push(await getSong(Room_code, doc));
         });
-        
+        list.pop();
         return list;
     })
     .catch(function(error) {
@@ -157,7 +160,7 @@ async function fillQueue() {
 
 function removeQueue() {
     let songBody = document.getElementById("songinsert");
-    songBody.innerHTML.value = ``;
+    songBody.innerHTML ="";
 }
 
 function addmusic(){
@@ -165,4 +168,6 @@ function addmusic(){
     var input = document.getElementById("search").value;
     addSong(room, input, "", "");
     document.getElementById("search").value = "";
+    removeQueue();
+    fillQueue();
 }
