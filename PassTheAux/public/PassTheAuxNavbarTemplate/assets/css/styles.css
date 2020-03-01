@@ -1,0 +1,61 @@
+.icon {
+	display: inline-block;
+	/* padding-top: .3125rem; */
+	/* padding-bottom: .3125rem; */
+	/* margin-right: 1rem; */
+	font-size: 1.25rem;
+	line-height: inherit;
+	white-space: nowrap;
+}
+
+.navbar-light .navbar-toggler {
+}
+
+.iconbutton {
+	background-color: gray; /* Blue background */
+	border: none; /* Remove borders */
+	color: white; /* White text */
+	padding: 12px px; /* Some padding */
+	font-size: 16px; /* Set a font size */
+	cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.iconbutton:hover {
+	background-color: blanchedalmond;
+}
+
+.songsearch {
+	margin-top: 30px;
+}
+
+.navbar-light .navbar-text a {
+	color: white;
+}
+
+.iconbox,
+.iconbox-icon {
+	box-shadow: -6px 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.iconbox {
+	background: #000 none repeat scroll 0 0;
+	padding: 40px 15px;
+	position: relative;
+	text-align: center;
+	width: 80%;
+  margin: 30px auto;
+  color: white;
+}
+
+.iconbox-text p{
+  margin-top: 60px;
+}
+.iconskip {
+  font-size: 50px;
+
+}
+
+.voted {
+  color: gray;
+}

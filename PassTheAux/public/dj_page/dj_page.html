@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Pass The Aux</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <script defer src="/__/firebase/7.9.3/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/7.9.3/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.9.3/firebase-database.js"></script>
+    <script defer src="/__/firebase/7.9.3/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/7.9.3/firebase-storage.js"></script>
+    <script defer src="/__/firebase/7.9.3/firebase-firestore.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+</head>
+
+<body style="background-color: rgb(30,28,28);">
+    <header class="text-center d-flex d-sm-flex justify-content-center align-items-sm-center">
+        <img class="img-fluid" src="assets/img/logo.png" style="filter: blur(0px) brightness(200%) contrast(200%) invert(100%) saturate(200%);width: 351px;" onclick="change_page_to_home()"></header>
+    <div class="d-sm-flex justify-content-sm-center"></div>
+    <div class="d-flex">
+        <div class="container">
+            <div class="row">
+                <div class="col d-flex d-md-flex justify-content-center justify-content-md-center align-items-md-center">
+                    <button class="btn btn-primary text-center border rounded border-dark" type="button" style="margin: 14px;height: 57px;width: 164px;background-color: rgb(75,75,75);font-size: 21px;color: rgb(208,208,208);" onclick="dj_create_room()">Create Room</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center d-flex d-md-flex justify-content-center align-items-center justify-content-sm-center justify-content-lg-center">
+                    <div class="row">
+                        <input class="border-dark form-control form-control-lg" type="text" id="roomcode" style="height: 60px;width: 50%;margin-right: 25%;margin-left: 25%;margin-top:5%;background-color: rgb(69,69,69);color: rgb(225,225,225);filter: saturate(99%);border: 2px solid black;font-size: 36px;"
+                        placeholder="CODE" minlength="4" maxlength="4" inputmode="numeric">
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center d-flex d-md-flex justify-content-center align-items-center justify-content-sm-center justify-content-lg-center">
+                    <div class="row">
+                        <input class="border-dark form-control form-control-lg" type="text" id="djcode" style="height: 60px;width: 50%;margin-right: 25%;margin-left: 25%;margin-top:5%;background-color: rgb(69,69,69);color: rgb(225,225,225);filter: saturate(99%);border: 2px solid black;font-size: 36px;"
+                            placeholder="DJCODE" minlength="6" maxlength="6" inputmode="numeric">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <button class="btn btn-primary text-center border rounded border-dark" id="submitcode" type="submit" style="margin:auto;margin-top:5%;height: 57px;width: 136px;background-color: rgb(75,75,75);font-size: 20px;color: rgb(200,200,200);filter: brightness(100%) grayscale(0%);"onclick="dj_rejoin_room()">Rejoin</button>
+            </div>
+            
+            
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src='../db.js'></script>
+</body>
+
+</html>
