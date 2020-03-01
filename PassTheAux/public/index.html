@@ -21,16 +21,17 @@
 </head>
 
 <body style="background-color: rgb(30,28,28);">
-    <div class="d-sm-flex justify-content-sm-center"><img class="d-flex justify-content-center" src="assets/img/logo.svg" style="filter: blur(0px) brightness(200%) contrast(200%) invert(100%) saturate(200%);width: 351px;"></div>
+    <header class="text-center d-flex d-sm-flex justify-content-center align-items-sm-center"><img class="img-fluid" src="assets/img/logo.svg" style="filter: blur(0px) brightness(200%) contrast(200%) invert(100%) saturate(200%);width: 351px;"></header>
+    <div class="d-sm-flex justify-content-sm-center"></div>
     <div class="d-flex">
         <div class="container">
             <div class="row">
-                <div class="col d-flex d-md-flex justify-content-center justify-content-md-center align-items-md-center"><button class="btn btn-primary text-center border rounded border-dark d-flex justify-content-center align-items-center" type="button" style="margin: 14px;height: 57px;width: 210px;background-color: rgb(75,75,75);font-size: 21px;color: rgb(208,208,208);">Create New Room</button></div>
+                <div class="col d-flex d-md-flex justify-content-center justify-content-md-center align-items-md-center"><button class="btn btn-primary text-center border rounded border-dark" type="button" style="margin: 14px;height: 57px;width: 164px;background-color: rgb(75,75,75);font-size: 21px;color: rgb(208,208,208);" onclick="change_page()">I'm the DJ!</button></div>
             </div>
             <div class="row">
-                <div class="col text-center d-flex d-md-flex align-items-center justify-content-sm-center justify-content-lg-center">
-                    <form class="d-md-flex justify-content-md-center align-items-md-center"><input class="border-dark form-control form-control-lg d-md-flex justify-content-md-center align-items-md-center" type="text" id="roomcode" style="height: 60px;width: 142px;margin: 10px;background-color: rgb(69,69,69);color: rgb(225,225,225);filter: saturate(99%);border: 2px solid black;font-size: 36px;"
-                            placeholder="CODE" minlength="4" maxlength="4"><button class="btn btn-primary border rounded border-dark flex-grow-0 flex-shrink-1" id="submitcode" type="submit" style="margin: 10px;height: 57px;width: 134px;background-color: rgb(75,75,75);font-size: 20px;color: rgb(200,200,200);filter: brightness(100%) grayscale(0%);">Join Room</button></form>
+                <div class="col text-center d-flex d-md-flex justify-content-center align-items-center justify-content-sm-center justify-content-lg-center">
+                    <form class="d-flex d-sm-flex d-md-flex justify-content-center align-items-center align-items-sm-center justify-content-md-center align-items-md-center"><input class="border-dark form-control form-control-lg" type="text" id="roomcode" style="height: 60px;width: 133px;margin: 10px;background-color: rgb(69,69,69);color: rgb(225,225,225);filter: saturate(99%);border: 2px solid black;font-size: 36px;"
+                            placeholder="CODE" minlength="4" maxlength="4" inputmode="numeric"><button class="btn btn-primary text-center border rounded border-dark" id="submitcode" type="submit" style="margin: 10px;height: 57px;width: 136px;background-color: rgb(75,75,75);font-size: 20px;color: rgb(200,200,200);filter: brightness(100%) grayscale(0%);">Join Room</button></form>
                 </div>
             </div>
         </div>

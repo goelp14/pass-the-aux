@@ -149,3 +149,11 @@ function genDjCode() {
     let x = Math.floor((Math.random() * 10000));
     return "DJ" + x.toString(); 
 }
+
+function change_page_to_dj() {
+    window.location.href = "dj_page/dj_page.html";
+} 
+
+function change_page_to_home(){
+    window.location.href = "../index.html";
+}
