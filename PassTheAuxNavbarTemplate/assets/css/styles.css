@@ -11,3 +11,39 @@
 .navbar-light .navbar-toggler {
 }
 
+#sidebar {
+  position: fixed;
+  width: 400px;
+  height: 100%;
+  background: #151719;
+  left: -400px;
+  transition: all 200ms linear;
+}
+
+#sidebar ul li {
+  color: rgba(230,230,230,0.9);
+  list-style: none;
+  padding: 15px 10px;
+  margin-left: -30px;
+  border-bottom: 1px solid rgba(100,100,100.3);
+}
+
+#sidebar.active {
+  left: 0px;
+}
+
+#sidebar .toggle-btn {
+  position: absolute;
+  left:430px;
+  top:20px;
+  padding-right: 30px;
+  display: block;
+}
+
+#sidebar .toggle-btn i {
+  display: inline-block;
+}
+
+#sidebar .toggle-btn span {
+  margin-left: 0px !important;
+}
